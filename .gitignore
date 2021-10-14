@@ -17,7 +17,10 @@ buildNumber.properties
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-.DS_Store
 .idea
-*.iml
+.DS_Store
+target
+
+
+
 
