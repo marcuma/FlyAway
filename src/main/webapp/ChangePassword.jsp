@@ -11,7 +11,9 @@
     <title>Change Password</title>
 </head>
 <body>
+<h3 style="color: darkred">${errorMessage}</h3>
 <form action="changePassword" method="post">
+    <input type="hidden" name="id" value="${id}"
   <label for="newPassword">Enter new password</label>
   <input id="newPassword" type="password" name="newPassword"/>
     <button type="submit">Change Password</button>

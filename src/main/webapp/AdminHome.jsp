@@ -18,11 +18,12 @@
     }
 </style>
 <body>
+<% request.getSession().setAttribute("errorMessage", "");%>
 <div style="text-align: center">
     <h3>Admin Options</h3>
     <ul class="ul">
-        <li><a href="ChangePassword.jsp">Change Password</a></li>
-        <li><a href="viewArlines">View Airlines</a></li>
+        <li><a href="ChangePassword.jsp?${id}">Change Password</a></li>
+        <li><a href="viewAirlines">View Airlines</a></li>
         <li><a href="viewAirports">View Airports</a></li>
         <li><a href="viewFlights">View Flights</a></li>
     </ul>

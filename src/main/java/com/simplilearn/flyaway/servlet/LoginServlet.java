@@ -32,7 +32,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        request.setAttribute("errorMessage", "");
         String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -44,11 +46,15 @@ public class LoginServlet extends HttpServlet {
         User user;
         try {
             user = query.getSingleResult();
-        if (user.getUserName().equals(request.getParameter("userName"))
-            && user.getPassword().equals(request.getParameter("password")))
-            response.sendRedirect("AdminHome.jsp");
+            if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
+                request.getSession().setAttribute("id", user.getId());
+                response.sendRedirect("AdminHome.jsp");
+            } else {
+                request.getSession().setAttribute("errorMessage", "Username or Password incorrect.");
+                response.sendRedirect("AdminLogin.jsp");
+            }
         } catch (NoResultException ex) {
-            request.getSession().setAttribute("errorMessage", "Username or Password incorrect.");
+            request.getSession().setAttribute("errorMessage", "Please enter username and password.");
             response.sendRedirect("AdminLogin.jsp");
         }
         session.close();
