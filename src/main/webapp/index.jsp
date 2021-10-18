@@ -14,10 +14,12 @@
 <h3>Search for a flight</h3>
 <form action="findFlights" method="post">
 <table>
+    <h3 style="color: darkred">${errorMessage}</h3><br>
     <tr>
         <td><label>Date of Travel</label></td>
         <td><input type="date" name="date"></td>
     </tr>
+    <!--
     <tr>
         <td><label>Airline</label></td>
         <td>
@@ -31,13 +33,14 @@
             </select>
         </td>
     </tr>
+    -->
     <tr>
         <td><label>Source</label></td>
         <td>
             <select name="source">
                 <option></option>
                 <c:forEach items="${airports}" var="airport">
-                    <option value="${airport.airportName}">
+                    <option value="${airport.airport_id}">
                         ${airport.airportName}
                     </option>
                 </c:forEach>
@@ -51,7 +54,7 @@
             <select name="destination">
                 <option></option>
                 <c:forEach items="${airports}" var="airport">
-                    <option value="${airport.airportName}">
+                    <option value="${airport.airport_id}">
                             ${airport.airportName}
                     </option>
                 </c:forEach>

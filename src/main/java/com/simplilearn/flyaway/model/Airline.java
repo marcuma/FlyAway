@@ -16,7 +16,8 @@ import javax.persistence.Table;
 public class Airline {
 
     @Id
-    private int airline_id;
+    @Column(name="airline_id")
+    private int airlineId;
     @Column(name = "airline_name")
     private String airlineName;
 
@@ -25,11 +26,11 @@ public class Airline {
     }
 
     public int getAirline_id() {
-        return airline_id;
+        return airlineId;
     }
 
     public void setAirline_id(int airline_id) {
-        this.airline_id = airline_id;
+        this.airlineId = airline_id;
     }
 
     public String getAirlineName() {

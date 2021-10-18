@@ -15,7 +15,8 @@ import javax.persistence.Table;
 @Table(name="tbl_airport")
 public class Airport {
     @Id
-    private int airport_id;
+    @Column(name="airport_id")
+    private int airportId;
     @Column(name="airport_code")
     private String airportCode;
     @Column(name="airport_name")
@@ -28,11 +29,11 @@ public class Airport {
     }
 
     public int getAirport_id() {
-        return airport_id;
+        return airportId;
     }
 
     public void setAirport_id(int airport_id) {
-        this.airport_id = airport_id;
+        this.airportId = airport_id;
     }
 
     public String getAirportCode() {

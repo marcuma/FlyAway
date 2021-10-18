@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "LoginServlet", value = "/LoginServlet")
+@WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,7 +48,8 @@ public class LoginServlet extends HttpServlet {
             && user.getPassword().equals(request.getParameter("password")))
             response.sendRedirect("AdminHome.jsp");
         } catch (NoResultException ex) {
-            response.sendRedirect("error/error.jsp?message=Username or Password incorrect");
+            request.getSession().setAttribute("errorMessage", "Username or Password incorrect.");
+            response.sendRedirect("AdminLogin.jsp");
         }
         session.close();
     }

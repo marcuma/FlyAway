@@ -16,6 +16,7 @@
         <mapping class="com.simplilearn.flyaway.model.User" />
         <mapping class="com.simplilearn.flyaway.model.Airline" />
         <mapping class="com.simplilearn.flyaway.model.Airport" />
+        <mapping class="com.simplilearn.flyaway.model.Flight" />
 
     </session-factory>
 </hibernate-configuration>
